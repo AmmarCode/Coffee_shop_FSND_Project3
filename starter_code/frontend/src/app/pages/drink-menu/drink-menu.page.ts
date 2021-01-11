@@ -23,10 +23,10 @@ export class DrinkMenuPage implements OnInit {
   }
 
   async openForm(activedrink: Drink = null) {
-    if (!this.auth.can('get:drinks-detail')) {
+    if (!this.auth.can('post:drinks')) {
       return;
     }
-
+    
     const modal = await this.modalCtrl.create({
       component: DrinkFormComponent,
       componentProps: { drink: activedrink, isNew: !activedrink }
